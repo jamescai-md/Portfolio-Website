@@ -3,95 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clive James B. Dominise | Creative Portfolio</title>
+    <title>James Cai — Motion Graphics Designer</title>
+    <meta name="description" content="Motion graphics that make your SaaS, brand, or content impossible to ignore. SaaS animations, viral reels, and talking-head short-form — delivered in days.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
+
+    <!-- ── HEADER ─────────────────────────────────────────────── -->
+    <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <h1>CLIVE JAMES</h1>
-                    <span class="logo-dot">.</span>
-                </div>
-                <nav class="nav-menu">
+                <a href="#home" class="logo">James Cai<span class="logo-dot">.</span></a>
+                <nav class="nav-menu" id="navMenu">
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Works</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#works">Works</a></li>
+                        <li><a href="#process">Process</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <a href="#contact" class="nav-cta">Start a Project</a>
+                <button class="mobile-menu-btn" id="mobileBtn" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- HOME Section - FADE UP ANIMATION -->
-    <section id="home" class="hero fade-up">
+    <!-- ── HERO ──────────────────────────────────────────────── -->
+    <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-greeting">Hello, I'm</p>
-                    <h1 class="hero-name">Clive James <span class="highlight">B. Dominise</span></h1>
-                    <p class="hero-title">Motion Graphics Editor | Video Editor | Graphic Designer</p>
-                    <p class="hero-description">Creating visual stories through motion, design, and creativity — passionate about bringing ideas to life.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Works</a>
-                        <a href="#contact" class="btn btn-secondary">Let's Collaborate</a>
-                    </div>
+            <div class="availability-badge">
+                <span class="avail-dot"></span> Available for new projects
+            </div>
+            <h1 class="hero-headline">
+                Motion Graphics that Make You<br>
+                <span class="hero-accent">Impossible to Ignore.</span>
+            </h1>
+            <p class="hero-sub">
+                SaaS animations, viral reels, and talking-head short-form — scroll-stopping motion design for creators and brands who want results.
+            </p>
+            <div class="hero-actions">
+                <a href="#works" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-ghost">Let's Collaborate</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Service Types</span>
                 </div>
-                <div class="hero-image">
-                    <div class="profile-frame">
-                        <img src="portraits/DOMINISE, CLIVE JAMES B (2).jpg" alt="Clive James B. Dominise - Creative Designer" class="profile-img">
-                        <div class="profile-shape"></div>
-                    </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">3–7</span>
+                    <span class="stat-label">Day Turnaround</span>
                 </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">7hr</span>
+                    <span class="stat-label">Response Time</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-grid-overlay"></div>
+    </section>
+
+    <!-- ── MARQUEE TRUST BAR ──────────────────────────────────── -->
+    <div class="marquee-section">
+        <div class="marquee-label">Works great for</div>
+        <div class="marquee-track">
+            <div class="marquee-inner">
+                <span>SaaS Startups</span>
+                <span class="marquee-dot">·</span>
+                <span>Content Creators</span>
+                <span class="marquee-dot">·</span>
+                <span>Digital Brands</span>
+                <span class="marquee-dot">·</span>
+                <span>Product Launches</span>
+                <span class="marquee-dot">·</span>
+                <span>E-commerce</span>
+                <span class="marquee-dot">·</span>
+                <span>Indie Founders</span>
+                <span class="marquee-dot">·</span>
+                <span>Marketing Teams</span>
+                <span class="marquee-dot">·</span>
+                <span>SaaS Startups</span>
+                <span class="marquee-dot">·</span>
+                <span>Content Creators</span>
+                <span class="marquee-dot">·</span>
+                <span>Digital Brands</span>
+                <span class="marquee-dot">·</span>
+                <span>Product Launches</span>
+                <span class="marquee-dot">·</span>
+                <span>E-commerce</span>
+                <span class="marquee-dot">·</span>
+                <span>Indie Founders</span>
+                <span class="marquee-dot">·</span>
+                <span>Marketing Teams</span>
+                <span class="marquee-dot">·</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── SERVICES ───────────────────────────────────────────── -->
+    <section id="services" class="section services-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">What I Do</p>
+                <h2 class="section-title">Every video type your brand needs</h2>
+            </div>
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-num">01</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>SaaS Motion Design</h3>
+                    <p>Animated product explainers and feature videos that convert browsers into buyers. Your SaaS will look like it raised a Series A.</p>
+                    <ul class="service-features">
+                        <li>Animated product/feature demo</li>
+                        <li>Script + storyboard included</li>
+                        <li>Brand-matched color & typography</li>
+                        <li>BGM + SFX + 1 revision</li>
+                        <li>Delivered in 5–7 days</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+
+                <div class="service-card service-card--featured">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-num">02</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    </div>
+                    <h3>Viral Reel (Motion Graphics)</h3>
+                    <p>High-retention, scroll-stopping motion graphics reels built for Instagram, TikTok, and YouTube. Kinetic text, bold visuals, impossible to skip.</p>
+                    <ul class="service-features">
+                        <li>15–30 sec MG-driven reel</li>
+                        <li>Kinetic text + transitions</li>
+                        <li>Licensed BGM included</li>
+                        <li>9:16 + 16:9 formats</li>
+                        <li>Delivered in 3–5 days</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-num">03</div>
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Talking Head (Short-Form)</h3>
+                    <p>Your talking-head footage transformed into scroll-stopping short-form content — animated callouts, lower thirds, captions, and MG b-roll.</p>
+                    <ul class="service-features">
+                        <li>MG b-roll + animated callouts</li>
+                        <li>Styled captions synced to speech</li>
+                        <li>Branded lower thirds</li>
+                        <li>Color grading + 1 revision</li>
+                        <li>Delivered in 3–4 days</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ABOUT Section - FADE UP ANIMATION -->
+    <!-- ── WORKS ─────────────────────────────────────────────── -->
+    <section id="works" class="section works-section fade-up">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Portfolio</p>
+                <h2 class="section-title">Selected Work</h2>
+            </div>
+            <div class="works-grid">
+
+                <div class="work-card">
+                    <div class="work-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="projects/History of IT.mp4" type="video/mp4">
+                        </video>
+                        <div class="work-overlay">
+                            <span class="work-tag">Motion Graphics</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>History of IT</h3>
+                        <p>Motion graphics documentary opener — kinetic type and animated timeline built in Alight Motion.</p>
+                        <div class="work-tools">
+                            <span>Alight Motion</span>
+                            <span>CapCut</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-media">
+                        <video autoplay muted loop playsinline>
+                            <source src="projects/New Project [470935C].mp4" type="video/mp4">
+                        </video>
+                        <div class="work-overlay">
+                            <span class="work-tag">Motion Graphics</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Motion Graphics Intro</h3>
+                        <p>Group documentary motion opener — scroll-stopping intro sequence with animated elements.</p>
+                        <div class="work-tools">
+                            <span>Alight Motion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-media work-media--image">
+                        <img src="projects/Clive James B. Dominise.png" alt="UI Designer Career Infographic">
+                        <div class="work-overlay">
+                            <span class="work-tag">Design</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Career Infographic</h3>
+                        <p>Visual infographic mapping a UI design career path — skills, tools, and milestones.</p>
+                        <div class="work-tools">
+                            <span>Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-media work-media--image">
+                        <img src="projects/PORSCHE 911 GT3RS [DD19E14].png" alt="Porsche 911 GT3RS Design">
+                        <div class="work-overlay">
+                            <span class="work-tag">Poster Design</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Porsche 911 GT3RS</h3>
+                        <p>Minimalist automotive poster — clean composition, high-contrast visual hierarchy.</p>
+                        <div class="work-tools">
+                            <span>Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────────── -->
     <section id="about" class="section about-section fade-up">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm <span class="highlight-text">Clive James B. Dominise</span>, a multi-disciplinary creative designer specializing in <strong>UI design, motion graphics, video editing, and poster design</strong>. I believe that design is not just about making things look good — it's about telling stories and creating experiences that resonate with people.</p>
-                    
-                    <p>My journey started with mobile editing apps, and today I'm proficient in <strong>Alight Motion, CapCut, and Canva</strong>. Currently, I'm expanding my skillset by learning <strong>Adobe Photoshop, After Effects, and Figma</strong> to bring more professional and high-quality outputs to my work.</p>
-                    
-                    <div class="personal-details">
-                        <div class="detail-item">
-                            <i class="fas fa-laptop-code"></i>
-                            <span>Alight Motion • CapCut • Canva</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Learning: Photoshop, After Effects, Figma</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-heart"></i>
-                            <span>Motion • Design • Creativity</span>
+            <div class="about-grid">
+                <div class="about-left">
+                    <p class="section-eyebrow">About</p>
+                    <h2 class="section-title" style="text-align:left;">I make motion work for your brand.</h2>
+                    <p class="about-body">I'm <strong>James Cai</strong> — a Motion Graphics Designer specializing in SaaS animations, viral reels, and talking-head short-form content. I believe great motion design doesn't just look good — it stops scrolls, holds attention, and drives results.</p>
+                    <p class="about-body">I started on mobile apps and now work across Alight Motion, CapCut, Canva, After Effects, Premiere Pro, and Figma to create motion content that actually performs.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top:2rem; display:inline-block;">Work With Me</a>
+                </div>
+                <div class="about-right">
+                    <div class="about-tools">
+                        <p class="about-tools-label">Tools & Software</p>
+                        <div class="tools-grid">
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                Alight Motion
+                            </div>
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                                CapCut
+                            </div>
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                                Canva
+                            </div>
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M17 7h5M2 17h5M17 17h5"/></svg>
+                                After Effects
+                            </div>
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                Premiere Pro
+                            </div>
+                            <div class="tool-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+                                Figma
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="goals-card">
-                        <i class="fas fa-bullseye"></i>
-                        <div>
-                            <h3>My Goal</h3>
-                            <p>To become a professional UI/UX designer and motion graphics artist, creating impactful designs for brands and content creators.</p>
+                    <div class="about-interests">
+                        <p class="about-tools-label">Specialties</p>
+                        <div class="interests-tags">
+                            <span>SaaS Animation</span>
+                            <span>Kinetic Typography</span>
+                            <span>Motion Design Ads</span>
+                            <span>Visual Storytelling</span>
+                            <span>Short-Form Content</span>
+                            <span>UI Animation</span>
                         </div>
                     </div>
                 </div>
@@ -99,286 +314,214 @@
         </div>
     </section>
 
-    <!-- SKILLS Section - FADE UP ANIMATION -->
-    <section id="skills" class="section skills-section fade-up">
+    <!-- ── PROCESS ───────────────────────────────────────────── -->
+    <section id="process" class="section process-section fade-up">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Skills & Tools</h2>
-                <div class="section-line"></div>
-                <p class="section-subtitle">What I use and what I'm mastering</p>
+                <p class="section-eyebrow">How It Works</p>
+                <h2 class="section-title">From brief to final file in days</h2>
             </div>
-            
-            <div class="skills-container">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Current Skills</h3>
-                    <ul class="skills-list">
-                        <li><i class="fab fa-android"></i> Alight Motion</li>
-                        <li><i class="fas fa-video"></i> CapCut</li>
-                        <li><i class="fas fa-palette"></i> Canva</li>
-                        <li><i class="fas fa-film"></i> Video Editing</li>
-                        <li><i class="fas fa-cube"></i> Motion Graphics</li>
-                        <li><i class="fas fa-paint-brush"></i> Graphic Design/Poster Design</li>
-                        <li><i class="fas fa-chart-pie"></i> Infographics</li>
-                        <li><i class="fas fa-mobile-alt"></i> UI Design (Basic)</li>
-                    </ul>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <h3>Send a Brief</h3>
+                    <p>Share your goal, style references, and deadline. No need to have everything figured out — I'll ask the right questions.</p>
                 </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>My Top Interests</h3>
-                    <ol class="interests-list">
-                        <li>Motion Graphics Animation</li>
-                        <li>Motion Design Ad</li>
-                        <li>SaaS Animation</li>
-                        <li>Kinetic Typography</li>
-                        <li>Visual Storytelling</li>
-                        <li>Minimalist Posters</li>
-                        <li>Mobile App UI Design</li>
-                        <li>Web Development</li>
-                    </ol>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <h3>Script & Direction</h3>
+                    <p>I write the script and map the visual direction. For SaaS and reels, you get a full creative plan before production starts.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <h3>Production</h3>
+                    <p>I animate and edit your video. Every project includes color grading, BGM, SFX, and captions where relevant.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <h3>Revision & Delivery</h3>
+                    <p>One round of revisions is included. Final file delivered as MP4, formatted for your platform, ready to post.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WORKS Section - FADE UP ANIMATION -->
-    <section id="projects" class="section projects-section fade-up">
+    <!-- ── FAQ ───────────────────────────────────────────────── -->
+    <section class="section faq-section fade-up">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">My Works</h2>
-                <div class="section-line"></div>
-                <p class="section-subtitle">2 featured projects — Motion Graphics + Print Design</p>
+                <p class="section-eyebrow">FAQ</p>
+                <h2 class="section-title">Questions I get asked a lot</h2>
             </div>
-            
-            <div class="projects-container">
-                
-                <!-- PROJECT 1 -->
-                <div class="project-card">
-                    <div class="project-number">01</div>
-                    <div class="project-header">
-                        <span class="project-category">Motion Graphics / Graphic Design/Poster Design</span>
-                        <h3>History of IT Motion Graphics & Porsche Poster</h3>
-                        <p class="project-subhead">Created with Alight Motion, CapCut & Canva</p>
-                    </div>
-                    
-                    <div class="media-container">
-                        <div class="video-wrapper">
-                            <h4><i class="fas fa-film"></i> History of IT - Motion Graphics</h4>
-                            <div class="video-frame">
-                                <video controls autoplay muted loop playsinline>
-                                    <source src="projects/History of IT.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <span><i class="fas fa-clock"></i> Duration: 2:30</span>
-                                    <span><i class="fas fa-tag"></i> Alight Motion</span>
-                                    <span><i class="fas fa-video"></i> CapCut</span>
-                                </div>
-                                <p class="file-name">History of IT.mp4</p>
-                            </div>
-                        </div>
-                        
-                        <div class="image-wrapper">
-                            <h4><i class="fas fa-poster"></i> Porsche 911 GT3RS Poster</h4>
-                            <div class="image-frame">
-                                <img src="projects/PORSCHE 911 GT3RS [DD19E14].png" 
-                                     alt="Porsche 911 GT3RS Poster by Clive James Dominise" 
-                                     class="project-image">
-                                <div class="image-badge">Graphic Design/Poster Design</div>
-                                <p class="file-name">PORSCHE 911 GT3RS [DD19E14].png</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-details">
-                        <div class="project-description">
-                            <p>This project combines two of my practice works. The <strong>motion graphics video</strong> explores the fascinating history of Information Technology, tracing its evolution from early computing to the digital age — created entirely in Alight Motion and CapCut. The <strong>Porsche 911 GT3RS poster</strong> was designed purely for practice and passion, showcasing my skills in poster design and automotive aesthetics. Both pieces reflect my continuous effort to improve my editing and design capabilities.</p>
-                        </div>
-                        <div class="project-tools">
-                            <span class="tool-tag"><i class="fab fa-android"></i> Alight Motion</span>
-                            <span class="tool-tag"><i class="fas fa-video"></i> CapCut</span>
-                            <span class="tool-tag"><i class="fas fa-palette"></i> Canva</span>
-                            <span class="tool-tag"><i class="fas fa-paint-brush"></i> Graphic Design/Poster Design</span>
-                        </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        How long does a project take?
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a">
+                        <p>Talking Head: 3–4 days. Viral Reel: 3–5 days. SaaS Motion Design: 5–7 days. All timelines start from when I receive your assets or brief, not from when you first contact me.</p>
                     </div>
                 </div>
-                
-                <!-- PROJECT 2 -->
-                <div class="project-card">
-                    <div class="project-number">02</div>
-                    <div class="project-header">
-                        <span class="project-category">Motion Graphics / Infographic Design</span>
-                        <h3>Documentary Intro Motion Graphics & UI Career Infographic</h3>
-                        <p class="project-subhead">Created with Alight Motion & Canva</p>
-                    </div>
-                    
-                    <div class="media-container">
-                        <div class="video-wrapper">
-                            <h4><i class="fas fa-film"></i> Documentary Introduction</h4>
-                            <div class="video-frame">
-                                <video controls autoplay muted loop playsinline>
-                                    <source src="projects/New Project [470935C].mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <span><i class="fas fa-clock"></i> Duration: 0:28</span>
-                                    <span><i class="fas fa-tag"></i> Alight Motion</span>
-                                </div>
-                                <p class="file-name">New Project [470935C].mp4</p>
-                            </div>
-                        </div>
-                        
-                        <div class="image-wrapper">
-                            <h4><i class="fas fa-chart-infographic"></i> UI Designer Career Infographic</h4>
-                            <div class="image-frame">
-                                <img src="projects/Clive James B. Dominise.png" 
-                                     alt="UI Designer Career Infographic by Clive James Dominise" 
-                                     class="project-image">
-                                <div class="image-badge">Infographic</div>
-                                <p class="file-name">Clive James B. Dominise.png</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-details">
-                        <div class="project-description">
-                            <p>The <strong>motion graphics introduction</strong> was created for our group documentary project — a short but impactful opener that sets the tone for the entire video. The <strong>infographic poster</strong> visualizes my potential future career as a UI Designer, highlighting key skills, tools, and pathways I aim to pursue. Together, these works represent my journey in motion graphics and my aspirations in the UI/UX design field.</p>
-                        </div>
-                        <div class="project-tools">
-                            <span class="tool-tag"><i class="fab fa-android"></i> Alight Motion</span>
-                            <span class="tool-tag"><i class="fas fa-palette"></i> Canva</span>
-                            <span class="tool-tag"><i class="fas fa-chart-pie"></i> Infographics</span>
-                            <span class="tool-tag"><i class="fas fa-paint-brush"></i> UI Design</span>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        What do you need from me to get started?
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a">
+                        <p>For SaaS and Reels: your product brief, brand colors, and 2–3 reference videos you like. For Talking Head: your footage, the goal of the video, and any style references. That's it — I handle the rest.</p>
                     </div>
                 </div>
-                
-                <div class="projects-summary">
-                    <div class="summary-badge">
-                        <i class="fas fa-check-circle"></i> 2 Projects • 2 Motion Graphics Videos • 2 Print Designs (Poster + Infographic)
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        How many revisions are included?
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a">
+                        <p>One round of revisions is included in every project. I do the hard creative thinking upfront so revisions stay minimal. If you're not happy with the direction after the first draft, I'll revise until it's right.</p>
                     </div>
-                    <p class="projects-note">⭐ Each project showcases my skills in Alight Motion, CapCut, and Canva. I'm currently learning Photoshop, After Effects, and Figma to level up my work.</p>
                 </div>
-                
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        Do you work with early-stage founders or small creators?
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a">
+                        <p>Yes — that's actually my preferred client. Early-stage SaaS teams and growing creators are who I built these services for. You don't need a huge budget or an existing design system to work with me.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        How do I pay?
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a">
+                        <p>Full payment upfront via GCash, PayPal, or Wise. Once I receive payment and your assets, production starts immediately.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT Section - FADE UP ANIMATION -->
+    <!-- ── CONTACT ───────────────────────────────────────────── -->
     <section id="contact" class="section contact-section fade-up">
         <div class="container">
-            <div class="section-header light">
-                <h2 class="section-title">Let's Work Together</h2>
-                <div class="section-line light-line"></div>
-            </div>
-            
-            <div class="contact-content">
-                <p class="contact-message">Available for freelance projects, collaborations, or just a creative chat about design and motion.</p>
-                
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4>Email Me</h4>
-                                <a href="mailto:dominiseclivejames0@gmail.com">dominiseclivejames0@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4>Response Time</h4>
-                                <p>Within 7 hours</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-section">
-                        <h4>Follow My Creative Journey</h4>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="YouTube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="#" class="social-icon" title="TikTok">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                        <p class="social-handle">@clivejames_designs</p>
-                    </div>
+            <div class="contact-inner">
+                <p class="section-eyebrow">Let's Work Together</p>
+                <h2 class="contact-headline">Ready to make something<br><span class="hero-accent">that actually moves people?</span></h2>
+                <p class="contact-sub">Send me a brief — you'll hear back within 7 hours.</p>
+                <div class="contact-actions">
+                    <a href="mailto:clivejames.motion@gmail.com" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        clivejames.motion@gmail.com
+                    </a>
                 </div>
+                <div class="contact-social">
+                    <a href="#" class="social-link" title="Instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" title="YouTube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link" title="TikTok" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                <p class="contact-handle">@jamescai.md</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ── FOOTER ────────────────────────────────────────────── -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>CLIVE JAMES <span class="dot">B. DOMINISE</span></h3>
-                    <p>Motion Graphics Editor • Video Editor • Graphic Designer</p>
+                <div class="footer-left">
+                    <span class="footer-logo">James Cai<span class="logo-dot">.</span></span>
+                    <p>Motion Graphics Designer</p>
                 </div>
-                <div class="footer-divider"></div>
-                <div class="footer-bottom">
-                    <p class="copyright">&copy; 2026 Clive James B. Dominise. All rights reserved.</p>
-                    <p class="footer-message">Built with HTML & CSS — My first portfolio website</p>
+                <nav class="footer-nav">
+                    <a href="#services">Services</a>
+                    <a href="#works">Works</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 James Cai. All rights reserved.</p>
+                <a href="#contact" class="footer-cta">Start a Project →</a>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
     <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
+    // ── Mobile menu ───────────────────────────────────────────
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navMenu   = document.getElementById('navMenu');
+    mobileBtn.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('active');
+        mobileBtn.classList.toggle('active', open);
+        mobileBtn.setAttribute('aria-expanded', open);
+    });
+    // Close on nav link click
+    navMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            mobileBtn.classList.remove('active');
         });
-    </script>
-    
-    <!-- Animation Script -->
-    <script>
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: "0px 0px -50px 0px"
-        };
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    const videos = entry.target.querySelectorAll('video');
-                    videos.forEach(video => {
-                        video.play().catch(e => console.log('Autoplay prevented:', e));
-                    });
-                }
-            });
-        }, observerOptions);
+    // ── Scroll-triggered fade-up ──────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                // Autoplay videos when section visible
+                e.target.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Trigger elements already in view on load
+    setTimeout(() => {
         document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
+            const r = el.getBoundingClientRect();
+            if (r.top < window.innerHeight - 60) el.classList.add('visible');
         });
+    }, 100);
 
-        setTimeout(() => {
-            document.querySelectorAll('.fade-up').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 0;
-                if (isVisible) {
-                    el.classList.add('visible');
-                }
+    // ── Header scroll state ───────────────────────────────────
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── FAQ accordion ─────────────────────────────────────────
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            // Close all
+            document.querySelectorAll('.faq-q').forEach(b => {
+                b.setAttribute('aria-expanded', 'false');
+                b.closest('.faq-item').classList.remove('open');
             });
-        }, 100);
+            // Open clicked if was closed
+            if (!expanded) {
+                btn.setAttribute('aria-expanded', 'true');
+                btn.closest('.faq-item').classList.add('open');
+            }
+        });
+    });
     </script>
 </body>
 </html>
