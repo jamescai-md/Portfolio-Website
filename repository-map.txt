@@ -1,0 +1,13 @@
+portfolio/
+│
+├── index.html
+├── style.css
+│
+├── portraits/
+│   └── DOMINISE, CLIVE JAMES B (2).jpg
+│
+└── projects/
+    ├── Clive James B. Dominise.png
+    ├── History of IT.mp4
+    ├── New Project [470935C].mp4
+    └── PORSCHE 911 GT3RS [DD19E14].png
