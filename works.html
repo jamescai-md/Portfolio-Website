@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works — James Cai</title>
+    <meta name="description" content="Selected motion graphics work by James Cai — SaaS animations, viral reels, and talking-head short-form content.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ── HEADER ───────────────────────────────────────────── -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">James Cai<span class="logo-dot">.</span></a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html" class="active">Works</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="nav-cta">Start a Project</a>
+                <button class="mobile-menu-btn" id="mobileBtn" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── PAGE HERO ─────────────────────────────────────────── -->
+    <div class="page-hero fade-up">
+        <div class="container">
+            <p class="section-eyebrow">Portfolio</p>
+            <h1>Selected Work</h1>
+            <p>Motion graphics projects across SaaS, reels, and short-form content.</p>
+        </div>
+    </div>
+
+    <!-- ── WORKS GRID ────────────────────────────────────────── -->
+    <div class="container">
+        <div class="works-grid-page fade-up">
+
+            <!-- 16:9 video -->
+            <div class="work-card" data-ratio="16-9">
+                <div class="work-media">
+                    <video autoplay muted loop playsinline>
+                        <source src="projects/History of IT.mp4" type="video/mp4">
+                    </video>
+                    <span class="work-tag-badge">SaaS Motion Design</span>
+                </div>
+                <div class="work-info">
+                    <h3>History of IT</h3>
+                    <p>Motion graphics documentary opener — kinetic type and animated timeline built to hold attention from the first frame.</p>
+                    <div class="work-tools">
+                        <span>Alight Motion</span>
+                        <span>CapCut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16:9 video -->
+            <div class="work-card" data-ratio="16-9">
+                <div class="work-media">
+                    <video autoplay muted loop playsinline>
+                        <source src="projects/New Project [470935C].mp4" type="video/mp4">
+                    </video>
+                    <span class="work-tag-badge">Viral Reel</span>
+                </div>
+                <div class="work-info">
+                    <h3>Motion Graphics Intro</h3>
+                    <p>Group documentary motion opener — scroll-stopping intro sequence with fast cuts and bold animated elements.</p>
+                    <div class="work-tools">
+                        <span>Alight Motion</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── CTA STRIP ─────────────────────────────────────────── -->
+    <div class="works-cta-strip fade-up">
+        <div class="container">
+            <div class="works-cta-inner">
+                <div>
+                    <h3>Want to see something specific?</h3>
+                    <p>More work on the way. In the meantime, reach out and I'll send over relevant examples for your niche.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">James Cai<span class="logo-dot">.</span></span>
+                    <p>Motion Graphics Designer</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="works.html">Works</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 James Cai. All rights reserved.</p>
+                <a href="contact.html" class="footer-cta">Start a Project →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navMenu   = document.getElementById('navMenu');
+    mobileBtn.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('active');
+        mobileBtn.classList.toggle('active', open);
+    });
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                e.target.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
+            }
+        });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+        });
+    }, 100);
+    </script>
+</body>
+</html>

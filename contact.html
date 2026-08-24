@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — James Cai</title>
+    <meta name="description" content="Start a project with James Cai — Motion Graphics Designer. Send a brief or book a discovery call.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ── HEADER ───────────────────────────────────────────── -->
+    <header class="header scrolled" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">James Cai<span class="logo-dot">.</span></a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="nav-cta">Start a Project</a>
+                <button class="mobile-menu-btn" id="mobileBtn" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── CONTACT CONTENT ───────────────────────────────────── -->
+    <div style="padding-top:6rem">
+        <div class="container">
+            <div class="contact-page-wrap fade-up">
+
+                <!-- LEFT -->
+                <div class="contact-left">
+                    <p class="section-eyebrow">Let's Work Together</p>
+                    <h1>Got a project<br><span class="hero-accent">in mind?</span></h1>
+                    <p>Tell me what you're working on and what you need. Whether it's a SaaS explainer, a reel that needs to perform, or talking-head footage that needs life — send me the details and I'll get back to you within 7 hours.</p>
+
+                    <div class="contact-detail">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:clivejames.motion@gmail.com">clivejames.motion@gmail.com</a>
+                    </div>
+                    <div class="contact-detail">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Response within 7 hours</span>
+                    </div>
+                    <div class="contact-detail">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        <span>Projects start within 24 hours of payment</span>
+                    </div>
+
+                    <div class="contact-socials">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="font-size:.82rem;color:var(--text-muted);margin-top:.6rem;font-weight:500">@jamescai.md</p>
+                </div>
+
+                <!-- RIGHT — FORM -->
+                <div class="contact-right">
+                    <div class="contact-form-box">
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <!-- Web3Forms access key -->
+                            <input type="hidden" name="access_key" value="41df5d9f-6e9f-47c1-b268-1628e5d082a1">
+                            <input type="hidden" name="subject" value="New Project Inquiry — James Cai Portfolio">
+                            <input type="hidden" name="from_name" value="James Cai Portfolio">
+                            <!-- Honeypot spam filter -->
+                            <input type="checkbox" name="botcheck" style="display:none">
+
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Alex Chen" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="alex@yourcompany.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">Service You're Interested In</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select a service...</option>
+                                    <option value="SaaS Motion Design">SaaS Motion Design</option>
+                                    <option value="Viral Reel (Motion Graphics)">Viral Reel (Motion Graphics)</option>
+                                    <option value="Talking Head (Short-Form)">Talking Head (Short-Form)</option>
+                                    <option value="Not sure yet">Not sure yet — let's talk</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Tell Me About Your Project</label>
+                                <textarea id="message" name="message" placeholder="What do you need, what's your goal, and when do you need it by?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+
+                            <div class="form-success" id="formSuccess">
+                                ✓ Message sent — I'll get back to you within 7 hours.
+                            </div>
+                        </form>
+
+                        <!-- BOOK A CALL TOGGLE -->
+                        <button class="book-call-toggle" id="bookCallBtn">
+                            <span>Prefer to talk first? Book a Discovery Call</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="cal-embed-wrap" id="calWrap">
+                            <iframe
+                                src="https://cal.com/jamescai/30min?embed=true&theme=dark"
+                                title="Book a Project Discovery Call with James Cai"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">James Cai<span class="logo-dot">.</span></span>
+                    <p>Motion Graphics Designer</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="works.html">Works</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 James Cai. All rights reserved.</p>
+                <a href="contact.html" class="footer-cta">Start a Project →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // ── Mobile menu
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navMenu   = document.getElementById('navMenu');
+    mobileBtn.addEventListener('click', () => {
+        const open = navMenu.classList.toggle('active');
+        mobileBtn.classList.toggle('active', open);
+    });
+
+    // ── Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Fade-up
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+        });
+    }, 80);
+
+    // ── Form submission (AJAX so page doesn't reload)
+    const form        = document.getElementById('contactForm');
+    const submitBtn   = document.getElementById('submitBtn');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const data = new FormData(form);
+        try {
+            const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+            const json = await res.json();
+            if (json.success) {
+                form.reset();
+                formSuccess.classList.add('show');
+                submitBtn.textContent = 'Message Sent ✓';
+            } else {
+                throw new Error('Failed');
+            }
+        } catch {
+            submitBtn.textContent = 'Something went wrong — try emailing directly.';
+            submitBtn.disabled = false;
+        }
+    });
+
+    // ── Book a Call toggle (slide-down reveal)
+    const bookCallBtn = document.getElementById('bookCallBtn');
+    const calWrap     = document.getElementById('calWrap');
+
+    bookCallBtn.addEventListener('click', () => {
+        const isOpen = calWrap.classList.toggle('open');
+        bookCallBtn.classList.toggle('open', isOpen);
+        if (isOpen) {
+            // Smooth scroll to cal embed
+            setTimeout(() => calWrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+        }
+    });
+    </script>
+</body>
+</html>

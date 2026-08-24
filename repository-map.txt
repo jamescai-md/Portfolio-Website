@@ -1,13 +1,21 @@
 portfolio/
 │
-├── index.html
-├── style.css
+├── index.html          ← Home page
+├── works.html          ← Works / Portfolio page
+├── contact.html        ← Contact page (Web3Forms + Cal.com)
+├── style.css           ← Shared stylesheet (all 3 pages)
 │
 ├── portraits/
 │   └── DOMINISE, CLIVE JAMES B (2).jpg
 │
 └── projects/
-    ├── Clive James B. Dominise.png
     ├── History of IT.mp4
-    ├── New Project [470935C].mp4
-    └── PORSCHE 911 GT3RS [DD19E14].png
+    └── New Project [470935C].mp4
+
+NOTES:
+- Poster files removed (not part of services)
+- All 3 pages share one style.css
+- Social links: replace href="#" with real URLs when ready
+- Web3Forms key: 41df5d9f-6e9f-47c1-b268-1628e5d082a1 (in contact.html)
+- Cal.com link: https://cal.com/jamescai/30min (embedded in contact.html)
+- After Effects, Premiere Pro, Figma listed in About section (index.html) — update tools display when instructed
