@@ -13,7 +13,6 @@
 </head>
 <body>
 
-    <!-- ── HEADER ───────────────────────────────────────────── -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
@@ -33,7 +32,6 @@
         </div>
     </header>
 
-    <!-- ── PAGE HERO ─────────────────────────────────────────── -->
     <div class="page-hero fade-up">
         <div class="container">
             <p class="section-eyebrow">Portfolio</p>
@@ -42,21 +40,22 @@
         </div>
     </div>
 
-    <!-- ── WORKS GRID ────────────────────────────────────────── -->
     <div class="container">
         <div class="works-grid-page fade-up">
 
-            <!-- 16:9 video -->
             <div class="work-card" data-ratio="16-9">
-                <div class="work-media">
-                    <video autoplay muted loop playsinline>
+                <div class="work-media" id="media-0">
+                    <video id="vid-0" preload="metadata" playsinline>
                         <source src="projects/History of IT.mp4" type="video/mp4">
                     </video>
+                    <div class="play-btn" id="play-0">
+                        <svg viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
                     <span class="work-tag-badge">SaaS Motion Design</span>
                 </div>
                 <div class="work-info">
                     <h3>History of IT</h3>
-                    <p>Motion graphics documentary opener — kinetic type and animated timeline built to hold attention from the first frame.</p>
+                    <p>Motion graphics documentary opener with kinetic type and animated timeline built to hold attention from the first frame.</p>
                     <div class="work-tools">
                         <span>Alight Motion</span>
                         <span>CapCut</span>
@@ -64,17 +63,19 @@
                 </div>
             </div>
 
-            <!-- 16:9 video -->
             <div class="work-card" data-ratio="16-9">
-                <div class="work-media">
-                    <video autoplay muted loop playsinline>
+                <div class="work-media" id="media-1">
+                    <video id="vid-1" preload="metadata" playsinline>
                         <source src="projects/New Project [470935C].mp4" type="video/mp4">
                     </video>
+                    <div class="play-btn" id="play-1">
+                        <svg viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
                     <span class="work-tag-badge">Viral Reel</span>
                 </div>
                 <div class="work-info">
                     <h3>Motion Graphics Intro</h3>
-                    <p>Group documentary motion opener — scroll-stopping intro sequence with fast cuts and bold animated elements.</p>
+                    <p>Group documentary motion opener with fast cuts and bold animated elements designed to stop the scroll.</p>
                     <div class="work-tools">
                         <span>Alight Motion</span>
                     </div>
@@ -84,20 +85,18 @@
         </div>
     </div>
 
-    <!-- ── CTA STRIP ─────────────────────────────────────────── -->
     <div class="works-cta-strip fade-up">
         <div class="container">
             <div class="works-cta-inner">
                 <div>
                     <h3>Want to see something specific?</h3>
-                    <p>More work on the way. In the meantime, reach out and I'll send over relevant examples for your niche.</p>
+                    <p>More work on the way. Reach out and I will send over relevant examples for your niche.</p>
                 </div>
                 <a href="contact.html" class="btn btn-primary">Get in Touch</a>
             </div>
         </div>
     </div>
 
-    <!-- ── FOOTER ─────────────────────────────────────────────── -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -124,30 +123,52 @@
     </footer>
 
     <script>
+    // Header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Mobile menu
     const mobileBtn = document.getElementById('mobileBtn');
     const navMenu   = document.getElementById('navMenu');
-    mobileBtn.addEventListener('click', () => {
-        const open = navMenu.classList.toggle('active');
-        mobileBtn.classList.toggle('active', open);
-    });
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                e.target.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
+    mobileBtn.addEventListener('click', () => { const open = navMenu.classList.toggle('active'); mobileBtn.classList.toggle('active', open); });
+
+    // Fade-up
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); }, 80);
+
+    // Click-to-play videos
+    const videoCount = 2;
+    for (let i = 0; i < videoCount; i++) {
+        const vid  = document.getElementById(`vid-${i}`);
+        const play = document.getElementById(`play-${i}`);
+        const media = document.getElementById(`media-${i}`);
+
+        media.addEventListener('click', () => {
+            if (vid.paused) {
+                // Pause all other videos first
+                for (let j = 0; j < videoCount; j++) {
+                    if (j !== i) {
+                        const other = document.getElementById(`vid-${j}`);
+                        const otherPlay = document.getElementById(`play-${j}`);
+                        other.pause();
+                        otherPlay.classList.remove('hidden');
+                    }
+                }
+                vid.play();
+                play.classList.add('hidden');
+            } else {
+                vid.pause();
+                play.classList.remove('hidden');
             }
         });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    setTimeout(() => {
-        document.querySelectorAll('.fade-up').forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+
+        vid.addEventListener('ended', () => {
+            play.classList.remove('hidden');
         });
-    }, 100);
+    }
     </script>
 </body>
 </html>
