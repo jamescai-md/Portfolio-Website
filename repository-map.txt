@@ -9,7 +9,13 @@ portfolio/
     ├── History of IT.mp4           (16:9 landscape)
     └── New Project [470935C].mp4   (16:9 landscape)
 
-TALLY INTAKE FORMS (send after 50% deposit received):
+PROMPT KITS (use these daily):
+├── 01-Outreach-Prompt-Kit.md         ← Content analyzer + DM/email outreach + follow-ups
+├── 02-Job-Application-Prompt-Kit.md  ← Job post analyzer + proposals + profile bio
+├── 03-Sales-and-Clients-Prompt-Kit.md← Price presentation + objections + closing + delivery
+└── 04-Creative-Production-Prompt-Kit.md ← Script prompts for all 4 scenarios
+
+TALLY INTAKE FORMS (send to client after 50% deposit received):
 - SaaS Motion Design : https://tally.so/r/WOV8XN
 - Viral Reel         : https://tally.so/r/gD69lN
 - Talking Head       : https://tally.so/r/WOV84P
@@ -19,15 +25,19 @@ INTEGRATIONS:
 - Cal.com link  : https://cal.com/jamescai/30min
 
 NOTES:
-- Social links: replace href="#" with real URLs when ready
-- portraits/ folder removed (not used on site)
-- Posters removed from works page (not part of services)
-- After Effects, Premiere Pro, Figma — update site when instructed
+- Social links: replace href="#" with real URLs when ready (tagged with TODO comments in all 3 HTML files)
+- Tools on works.html: After Effects + Premiere Pro (updated — Alight Motion removed)
+- Old AI-Outreach-Prompt-Kit.md is deprecated — use the 4 separate prompt kit files instead
 
 ADDING NEW WORK (tell Claude this):
 "Add a new work card. File name: [filename.mp4]. Aspect ratio: [16:9 / 9:16 / 1:1 / 4:5].
 Title: [title]. Description: [one line]. Category: [SaaS Motion Design / Viral Reel / Talking Head].
 Tools: [tools used]."
+
+PENDING (do when ready):
+- Add real Instagram, YouTube, TikTok URLs (search TODO in any HTML file)
+- Add testimonials section to index.html after first 3 testimonials received
+- Add more work cards to works.html as projects are completed
 
 ASPECT RATIO REFERENCE:
 - 16:9  = 1920x1080 landscape
