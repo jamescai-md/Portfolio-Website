@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Cai · Video Editor / Motion Graphics Designer</title>
+    <meta name="description" content="SaaS animations, viral reels, and talking-head short-form content for creators and brands who are tired of being skipped.">
+    <!-- Canonical link goes here once the domain is live: <link rel="canonical" href="https://DOMAIN/"> -->
+    <meta property="og:title" content="James Cai · Video Editor / Motion Graphics Designer">
+    <meta property="og:description" content="SaaS animations, viral reels, and talking-head short-form content for creators and brands who are tired of being skipped.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/img/brave-saas-ad.jpg">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    /* index-only section layout (shared components live in style.css) */
+    .section-header { margin-bottom: var(--space-6); }
+
+    .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+
+    /* Play/pause swap on the shared play button; drop the scrim while playing */
+    .play-btn .icon-pause { display: none; }
+    .play-btn.playing .icon-play { display: none; }
+    .play-btn.playing .icon-pause { display: flex; }
+    .play-btn.playing { background: transparent; }
+    .play-btn.playing:hover { background: rgba(13, 17, 23, 0.25); }
+
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+    .why-card { padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: border-color var(--dur-fast) var(--ease-out); }
+    .why-card:hover { border-color: var(--border-strong); }
+    .why-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--accent-border); border-radius: var(--radius-md); background: var(--accent-soft); color: var(--accent); margin-bottom: var(--space-4); }
+    .why-card h3 { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--space-2); }
+    .why-card p { font-size: 0.85rem; line-height: 1.65; color: var(--text-muted); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); align-items: stretch; }
+    .service-card { position: relative; display: flex; flex-direction: column; padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+    .service-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+    .service-num { position: absolute; top: var(--space-4); right: var(--space-5); font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); }
+    .service-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--accent-border); border-radius: var(--radius-md); background: var(--accent-soft); color: var(--accent); margin-bottom: var(--space-4); }
+    .service-card h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--space-2); }
+    .service-card > p { font-size: 0.84rem; line-height: 1.65; color: var(--text-muted); margin-bottom: var(--space-4); }
+    .service-features { margin-bottom: var(--space-5); }
+    .service-features li { display: flex; align-items: flex-start; gap: var(--space-2); font-size: 0.8rem; line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2); }
+    .service-features li svg { flex-shrink: 0; margin-top: 0.2rem; color: var(--accent); }
+    .service-cta { margin-top: auto; font-size: 0.85rem; font-weight: 700; color: var(--accent); transition: color var(--dur-fast) var(--ease-out); }
+    .service-cta:hover { color: var(--accent-hover); }
+
+    .process-layout { display: grid; grid-template-columns: 1fr 340px; gap: var(--space-6); align-items: start; }
+    .process-steps-list { display: flex; flex-direction: column; gap: var(--space-3); }
+    .process-trigger-left { display: flex; align-items: center; gap: var(--space-3); }
+
+    .faq-list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+    .marquee-dot { color: var(--accent); }
+
+    @media (max-width: 880px) {
+        .featured-grid, .why-grid, .services-grid { grid-template-columns: 1fr; }
+        .process-layout { grid-template-columns: 1fr; }
+
+        /* Menu close: exit animation, then the panel is removed by JS after 160ms */
+        .nav-menu.closing { animation: nav-close var(--dur-exit) var(--ease-out) forwards; }
+        @keyframes nav-close {
+            from { opacity: 1; transform: scaleY(1); }
+            to   { opacity: 0; transform: scaleY(0.95); }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .nav-menu.closing { animation: none; }
+    }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">James Cai<span class="logo-dot">.</span></a>
+                <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="nav-cta">Start a Project</a>
+                <button class="mobile-menu-btn" id="mobileBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="availability-badge">
+                <span class="avail-dot"></span> Available for new projects
+            </div>
+            <h1 class="hero-headline">
+                Motion Graphics that Turn<br>
+                <span class="hero-accent">Scrollers into Viewers.</span>
+            </h1>
+            <p class="hero-sub">SaaS animations, viral reels, and talking-head short-form content for creators and brands who are tired of being skipped.</p>
+            <div class="hero-actions">
+                <a href="works.html" class="btn btn-primary">View My Work</a>
+                <a href="contact.html" class="btn btn-ghost">Start a Project</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">10</span>
+                    <span class="stat-label">Day Max Turnaround</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">7hr</span>
+                    <span class="stat-label">Response Time</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-grid-overlay"></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-label">Works great for</div>
+        <div class="marquee-track">
+            <div class="marquee-inner">
+                <span>SaaS Startups</span><span class="marquee-dot">·</span>
+                <span>Content Creators</span><span class="marquee-dot">·</span>
+                <span>Digital Brands</span><span class="marquee-dot">·</span>
+                <span>Product Launches</span><span class="marquee-dot">·</span>
+                <span>Indie Founders</span><span class="marquee-dot">·</span>
+                <span>Marketing Teams</span><span class="marquee-dot">·</span>
+                <span>E-commerce</span><span class="marquee-dot">·</span>
+                <span>SaaS Startups</span><span class="marquee-dot">·</span>
+                <span>Content Creators</span><span class="marquee-dot">·</span>
+                <span>Digital Brands</span><span class="marquee-dot">·</span>
+                <span>Product Launches</span><span class="marquee-dot">·</span>
+                <span>Indie Founders</span><span class="marquee-dot">·</span>
+                <span>Marketing Teams</span><span class="marquee-dot">·</span>
+                <span>E-commerce</span><span class="marquee-dot">·</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED WORK -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-eyebrow">Featured Work</p>
+                <h2 class="section-title">SaaS ads and motion openers, start to finish</h2>
+            </div>
+            <div class="featured-grid stagger">
+                <article class="work-card fade-up">
+                    <div class="work-media">
+                        <video preload="none" poster="assets/img/brave-saas-ad.jpg" playsinline>
+                            <source src="assets/video/brave-saas-ad.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-tag-badge">SaaS Motion Design · Concept Ad</span>
+                        <button class="play-btn" type="button" aria-pressed="false" aria-label="Play Brave SaaS Ad video">
+                            <span class="play-btn-icon icon-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg></span>
+                            <span class="play-btn-icon icon-pause"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="work-info">
+                        <h3>Brave SaaS Ad</h3>
+                        <p>A concept ad for the Brave browser, built from animated UI mockups and kinetic type. Script, direction, and edit handled end to end.</p>
+                        <div class="work-tools">
+                            <span>After Effects</span>
+                            <span>Premiere Pro</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="work-card fade-up">
+                    <div class="work-media">
+                        <video preload="none" poster="assets/img/gemini-saas-ad.jpg" playsinline>
+                            <source src="assets/video/gemini-saas-ad.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-tag-badge">SaaS Motion Design · Concept Ad</span>
+                        <button class="play-btn" type="button" aria-pressed="false" aria-label="Play Gemini SaaS Ad video">
+                            <span class="play-btn-icon icon-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg></span>
+                            <span class="play-btn-icon icon-pause"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="work-info">
+                        <h3>Gemini SaaS Ad</h3>
+                        <p>A short concept ad for an AI workspace, built around one clear message and fast, confident motion.</p>
+                        <div class="work-tools">
+                            <span>After Effects</span>
+                            <span>Premiere Pro</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="work-card fade-up">
+                    <div class="work-media">
+                        <video preload="none" poster="assets/img/history-of-it.jpg" playsinline>
+                            <source src="assets/video/history-of-it.mp4" type="video/mp4">
+                        </video>
+                        <span class="work-tag-badge">Motion Graphics · Documentary Opener</span>
+                        <button class="play-btn" type="button" aria-pressed="false" aria-label="Play History of IT video">
+                            <span class="play-btn-icon icon-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg></span>
+                            <span class="play-btn-icon icon-pause"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="work-info">
+                        <h3>History of IT</h3>
+                        <p>Kinetic type and animated timeline built to make any product look premium from the first frame.</p>
+                        <div class="work-tools">
+                            <span>After Effects</span>
+                            <span>Premiere Pro</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (WHAT I DO) -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-eyebrow">What I Do</p>
+                <h2 class="section-title">Three ways I can help</h2>
+            </div>
+            <div class="services-grid stagger">
+                <div class="service-card fade-up">
+                    <div class="service-num">01</div>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>SaaS Motion Design</h3>
+                    <p>Animated explainers and feature demos that make your product look like it means business, clear, sharp, and built to convert.</p>
+                    <ul class="service-features">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Animated product or feature demo</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Script and visual direction included</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Brand-matched colors and typography</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>BGM + SFX + 1 revision round</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Delivered in 6-8 business days</li>
+                    </ul>
+                    <a href="contact.html" class="service-cta">Get Started →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-num">02</div>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    </div>
+                    <h3>Viral Reel (Motion Graphics)</h3>
+                    <p>High-retention reels for Instagram, TikTok, and YouTube. Kinetic text, bold cuts, and a hook that stops the scroll in the first two seconds.</p>
+                    <ul class="service-features">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>15-30 sec MG-driven reel</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Kinetic text and transitions throughout</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Licensed BGM included</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>9:16 and 16:9 formats delivered</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Delivered in 4-5 business days</li>
+                    </ul>
+                    <a href="contact.html" class="service-cta">Get Started →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-num">03</div>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Talking Head (Short-Form)</h3>
+                    <p>Your footage elevated with animated callouts, styled captions synced to speech, lower thirds, and MG b-roll that make clips worth watching.</p>
+                    <ul class="service-features">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>MG b-roll and animated callouts</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Captions styled and synced to speech</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Branded lower thirds</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Color grading + 1 revision round</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Delivered in 4-5 business days</li>
+                    </ul>
+                    <a href="contact.html" class="service-cta">Get Started →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY JAMES CAI -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-eyebrow">Why James Cai</p>
+                <h2 class="section-title">Motion design that works as hard as you do</h2>
+            </div>
+            <div class="why-grid stagger">
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Fast, Reliable Turnaround</h3>
+                    <p>Every project has a clear deadline and I hit it. Talking Head and Reels in 4-5 days, SaaS in 6-8 days. No ghosting, no delays.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3>Script to Final File, Handled</h3>
+                    <p>Send me your goal. I handle the script, the visual direction, and the edit. You review and approve. That is it.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>Built to Perform, Not Just Look Good</h3>
+                    <p>Every creative decision is made with retention in mind. The hook, the pacing, the cut points are all designed to keep eyes on screen.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Built for Creators and Brands, Not Just Big Teams</h3>
+                    <p>No existing brand system needed. No big budget. If you have content that needs to perform better, we can work together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-eyebrow">How It Works</p>
+                <h2 class="section-title">From brief to final file in days</h2>
+            </div>
+            <div class="process-layout">
+                <div class="process-steps-list fade-up">
+
+                    <div class="process-item active" data-step="0">
+                        <button class="process-trigger" aria-expanded="true" aria-controls="process-body-0">
+                            <div class="process-trigger-left">
+                                <span class="process-step-num">01</span>
+                                <h3>Send a Brief</h3>
+                            </div>
+                            <svg class="process-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="process-body" id="process-body-0"><div>
+                            <p>Fill out the contact form with your project goal, the type of video you need, and your deadline. No need to have everything figured out. That is what the next step is for.</p>
+                        </div></div>
+                    </div>
+
+                    <div class="process-item" data-step="1">
+                        <button class="process-trigger" aria-expanded="false" aria-controls="process-body-1">
+                            <div class="process-trigger-left">
+                                <span class="process-step-num">02</span>
+                                <h3>Discovery and Intake</h3>
+                            </div>
+                            <svg class="process-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="process-body" id="process-body-1"><div>
+                            <p>Once we agree on scope, you pay a 50% deposit to lock in your slot. I then send you a structured intake form covering your brand assets, style references, inspiration videos, and key message. If you have a script ready, include it. If not, we write it together.</p>
+                        </div></div>
+                    </div>
+
+                    <div class="process-item" data-step="2">
+                        <button class="process-trigger" aria-expanded="false" aria-controls="process-body-2">
+                            <div class="process-trigger-left">
+                                <span class="process-step-num">03</span>
+                                <h3>Script and Direction</h3>
+                            </div>
+                            <svg class="process-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="process-body" id="process-body-2"><div>
+                            <p>For SaaS and Reels, I write the script and map the visual direction before a single frame is touched. You review and approve. For Talking Head, we move straight to production from your intake.</p>
+                        </div></div>
+                    </div>
+
+                    <div class="process-item" data-step="3">
+                        <button class="process-trigger" aria-expanded="false" aria-controls="process-body-3">
+                            <div class="process-trigger-left">
+                                <span class="process-step-num">04</span>
+                                <h3>Production</h3>
+                            </div>
+                            <svg class="process-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="process-body" id="process-body-3"><div>
+                            <p>I animate and edit your video end-to-end. Motion graphics, color grading, BGM, SFX, and captions all handled. You do not manage separate pieces. You get a complete first draft.</p>
+                        </div></div>
+                    </div>
+
+                    <div class="process-item" data-step="4">
+                        <button class="process-trigger" aria-expanded="false" aria-controls="process-body-4">
+                            <div class="process-trigger-left">
+                                <span class="process-step-num">05</span>
+                                <h3>Review and Delivery</h3>
+                            </div>
+                            <svg class="process-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="process-body" id="process-body-4"><div>
+                            <p>You review the draft and send all your feedback in one go. I apply every change in one revision round. Once approved, you pay the remaining 50% and receive the final MP4 formatted for your platform, ready to upload.</p>
+                        </div></div>
+                    </div>
+
+                </div>
+
+                <!-- PANEL -->
+                <div class="process-panel" id="processPanel">
+                    <div class="panel-eyebrow" id="panelEyebrow">Step 01</div>
+                    <div class="panel-title" id="panelTitle">Send a Brief</div>
+                    <div class="panel-desc" id="panelDesc">Tell me what you need and when you need it. The contact form takes two minutes to fill out.</div>
+                    <div id="panelDetails">
+                        <div class="panel-detail">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>No commitment required at this stage</span>
+                        </div>
+                        <div class="panel-detail">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Response within 7 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-eyebrow">FAQ</p>
+                <h2 class="section-title">Questions I get asked a lot</h2>
+            </div>
+            <div class="faq-list fade-up">
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false" aria-controls="faq-a-0">
+                        <h3>How does payment work?</h3>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" id="faq-a-0"><div><p>A 50% deposit is required upfront to lock in your project slot. The remaining 50% is due once you approve the final revision and before the final file is delivered. Payment via PayPal or Wise.</p></div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">
+                        <h3>How long does a project take?</h3>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" id="faq-a-1"><div><p>Timelines depend on the scope of the project but typically fall within 10 business days. As a guide: Talking Head and Viral Reel take 4-5 days, SaaS Motion Design takes 6-8 days. All timelines start from when I receive your completed intake form and assets, not from when you first message me.</p></div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">
+                        <h3>How many revisions are included?</h3>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" id="faq-a-2"><div><p>One revision round is included in every project. Send all your feedback in one go and I apply every change in that single round. Additional revisions beyond that are available at an extra cost.</p></div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">
+                        <h3>What do you need from me to get started?</h3>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" id="faq-a-3"><div><p>Fill out the contact form with your goal and deadline. Once we agree on scope and you pay the 50% deposit, I send you a structured intake form covering everything I need: brand assets, references, script or talking points, and footage if applicable.</p></div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">
+                        <h3>Do you work with early-stage founders or small creators?</h3>
+                        <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" id="faq-a-4"><div><p>Yes, that is exactly who I built this for. You do not need an existing design system or a big team. If you have a product to explain or content that needs to perform better, we can work together.</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <section class="about-strip">
+        <div class="container">
+            <div class="about-strip-inner fade-up">
+                <img src="assets/img/james-portrait.jpg" alt="Portrait of James Cai, Video Editor / Motion Graphics Designer" width="96" height="96" loading="lazy">
+                <p>I'm James Cai, a Video Editor / Motion Graphics Designer helping creators and brands ship SaaS animations, viral reels, and short-form content that people actually finish. If your videos deserve more attention than they are getting, send me a brief and let's fix that.<br><strong>jamescai.md</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">James Cai<span class="logo-dot">.</span></span>
+                    <p>Video Editor / Motion Graphics Designer</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="index.html">Home</a>
+                    <a href="works.html">Works</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="https://instagram.com" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="https://youtube.com" aria-label="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 7a3 3 0 0 1 3-3h13a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-13a3 3 0 0 1-3-3V7z"/><polygon points="10 9 15.5 12 10 15 10 9" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="https://tiktok.com" aria-label="TikTok">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.5 3.5v10.1a4.4 4.4 0 1 1-4.4-4.4"/><path d="M13.5 3.5c.4 3 2.9 5.3 6 5.6"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 James Cai. All rights reserved.</p>
+                <a href="contact.html" class="footer-cta">Start a Project →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Header scroll state
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // Mobile menu: open instantly, close with a short exit before the panel drops
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navMenu   = document.getElementById('navMenu');
+    let menuClosing = false;
+
+    function openMenu() {
+        navMenu.classList.remove('closing');
+        navMenu.classList.add('active');
+        mobileBtn.classList.add('active');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        if (!navMenu.classList.contains('active') || menuClosing) return;
+        menuClosing = true;
+        mobileBtn.classList.remove('active');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        navMenu.classList.add('closing');
+        setTimeout(() => {
+            navMenu.classList.remove('active', 'closing');
+            menuClosing = false;
+        }, 160); // --dur-exit: keep in sync with the nav-close keyframe
+    }
+
+    mobileBtn.addEventListener('click', () => {
+        if (menuClosing) return;
+        navMenu.classList.contains('active') ? closeMenu() : openMenu();
+    });
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    // Scroll reveal (no video autoplay: featured videos stay paused until played)
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 40) el.classList.add('visible');
+        });
+    }, 80);
+
+    // Featured videos: the play button toggles playback, one at a time
+    document.querySelectorAll('.featured-grid .work-media').forEach((media) => {
+        const video  = media.querySelector('video');
+        const btn    = media.querySelector('.play-btn');
+        const title  = media.closest('.work-card').querySelector('h3').textContent;
+        const setPlaying = (playing) => {
+            btn.classList.toggle('playing', playing);
+            btn.setAttribute('aria-pressed', String(playing));
+            btn.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + title + ' video');
+        };
+        btn.addEventListener('click', () => {
+            if (video.paused) {
+                document.querySelectorAll('.featured-grid video').forEach((v) => { if (v !== video) v.pause(); });
+                media.classList.add('video-loading');
+                video.play().catch(() => media.classList.remove('video-loading'));
+            } else {
+                video.pause();
+            }
+        });
+        video.addEventListener('playing', () => { media.classList.remove('video-loading'); setPlaying(true); });
+        video.addEventListener('pause',  () => setPlaying(false));
+        video.addEventListener('ended',  () => setPlaying(false));
+    });
+
+    // How It Works accordion + side panel
+    const panelData = [
+        {
+            eyebrow: 'Step 01', title: 'Send a Brief',
+            desc: 'Tell me what you need and when you need it. The contact form takes two minutes.',
+            details: ['No commitment required at this stage', 'Response within 7 hours']
+        },
+        {
+            eyebrow: 'Step 02', title: 'Discovery and Intake',
+            desc: 'Pay a 50% deposit to lock your slot. I send you a structured intake form for brand assets, references, and your script or brief.',
+            details: ['50% deposit secures your slot', 'Intake form sent within 2 hours of payment']
+        },
+        {
+            eyebrow: 'Step 03', title: 'Script and Direction',
+            desc: 'For SaaS and Reels, I write the script and map the visual direction before production starts. You review and approve.',
+            details: ['Script written for you if needed', 'Visual direction approved before production']
+        },
+        {
+            eyebrow: 'Step 04', title: 'Production',
+            desc: 'I handle animation, color grading, BGM, SFX, and captions end-to-end. You get a complete first draft.',
+            details: ['Motion graphics, audio, captions all included', 'First draft delivered on agreed date']
+        },
+        {
+            eyebrow: 'Step 05', title: 'Review and Delivery',
+            desc: 'Send all feedback in one go. I apply every change in one revision round. Pay the remaining 50% and receive your final MP4.',
+            details: ['One revision round included', 'Final file delivered via Google Drive']
+        }
+    ];
+
+    const items        = document.querySelectorAll('.process-item');
+    const panelEyebrow = document.getElementById('panelEyebrow');
+    const panelTitle   = document.getElementById('panelTitle');
+    const panelDesc    = document.getElementById('panelDesc');
+    const panelDetails = document.getElementById('panelDetails');
+
+    function updatePanel(idx) {
+        const d = panelData[idx];
+        panelEyebrow.textContent = d.eyebrow;
+        panelTitle.textContent   = d.title;
+        panelDesc.textContent    = d.desc;
+        panelDetails.innerHTML   = d.details.map((t) => `
+            <div class="panel-detail">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>${t}</span>
+            </div>`).join('');
+    }
+
+    items.forEach((item, idx) => {
+        item.querySelector('.process-trigger').addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            items.forEach((i) => {
+                i.classList.remove('active');
+                i.querySelector('.process-trigger').setAttribute('aria-expanded', 'false');
+            });
+            if (!isActive) {
+                item.classList.add('active');
+                item.querySelector('.process-trigger').setAttribute('aria-expanded', 'true');
+                updatePanel(idx);
+            }
+        });
+    });
+
+    // FAQ: one open at a time
+    document.querySelectorAll('.faq-q').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            document.querySelectorAll('.faq-q').forEach((b) => {
+                b.setAttribute('aria-expanded', 'false');
+                b.closest('.faq-item').classList.remove('open');
+            });
+            if (!expanded) {
+                btn.setAttribute('aria-expanded', 'true');
+                btn.closest('.faq-item').classList.add('open');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
