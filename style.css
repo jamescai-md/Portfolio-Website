@@ -1,5 +1,5 @@
 /* ============================================================
-   JAMES — PORTFOLIO V4 SHARED STYLESHEET
+   JAMES - PORTFOLIO V4 SHARED STYLESHEET
    Dark navy + sky accent | Archivo (headings) + Space Grotesk (body)
    Fonts are linked in each page's HTML (Google Fonts). No @import,
    no external URLs here. Icons are inline SVG in the HTML.
@@ -565,11 +565,16 @@ button {
     overflow: hidden;
 }
 
-/* Optional ratios via data-ratio on the card or the media itself */
+/* Optional ratios via data-ratio on the card or the media itself.
+   Vertical caps belong on the CARD so poster and card narrow together. */
 [data-ratio="9-16"] .work-media,
 .work-media[data-ratio="9-16"] {
     aspect-ratio: 9 / 16;
-    max-width: 280px;
+}
+
+/* Cap the whole card, never the media area inside it */
+.work-card[data-ratio="9-16"] {
+    max-width: 480px;
     margin-inline: auto;
 }
 
@@ -798,7 +803,10 @@ button {
     color: var(--accent);
 }
 
-/* Collapsible body: 0fr -> 1fr grid transition, 200ms */
+/* Collapsible body: 0fr -> 1fr grid transition, 200ms.
+   Markup contract: <div class="process-body"><div>content</div></div>
+   and <div class="faq-a"><div>content</div></div> - the inner div is
+   required for the grid-rows transition to collapse. */
 .process-body,
 .faq-a {
     display: grid;
@@ -811,6 +819,7 @@ button {
     grid-template-rows: 1fr;
 }
 
+/* Inner wrapper required: see markup contract above */
 .process-body > div,
 .faq-a > div {
     min-height: 0;
@@ -913,9 +922,10 @@ button {
     font-family: var(--font-body);
     font-size: 0.88rem;
     color: var(--text);
-    outline: none;
     resize: none;
-    transition: border-color var(--dur-fast) var(--ease-out);
+    transition:
+        border-color var(--dur-fast) var(--ease-out),
+        box-shadow var(--dur-fast) var(--ease-out);
 }
 
 .form-group input::placeholder,
@@ -923,10 +933,13 @@ button {
     color: var(--text-muted);
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+/* Keyboard focus: accent border + soft ring (never outline:none) */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+    outline: none;
 }
 
 /* Dark-friendly autofill (Chrome fills with white unless overridden) */
@@ -1064,6 +1077,9 @@ button {
     transform: rotate(180deg);
 }
 
+/* Cal embed: 0fr -> 1fr grid transition, 200ms.
+   Markup contract: <div class="cal-embed-wrap"><div><iframe ...></iframe></div></div>
+   the inner div is required for the grid-rows transition to collapse. */
 .cal-embed-wrap {
     display: grid;
     grid-template-rows: 0fr;
@@ -1074,6 +1090,7 @@ button {
     grid-template-rows: 1fr;
 }
 
+/* Inner wrapper required: see markup contract above */
 .cal-embed-wrap > div {
     min-height: 0;
     overflow: hidden;
