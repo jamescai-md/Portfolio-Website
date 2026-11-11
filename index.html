@@ -17,16 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
     /* index-only section layout (shared components live in style.css) */
-    .section-header { margin-bottom: var(--space-6); }
-
     .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
-
-    /* Play/pause swap on the shared play button; drop the scrim while playing */
-    .play-btn .icon-pause { display: none; }
-    .play-btn.playing .icon-play { display: none; }
-    .play-btn.playing .icon-pause { display: flex; }
-    .play-btn.playing { background: transparent; }
-    .play-btn.playing:hover { background: rgba(13, 17, 23, 0.25); }
 
     .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
     .why-card { padding: var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: border-color var(--dur-fast) var(--ease-out); }
@@ -59,17 +50,6 @@
     @media (max-width: 880px) {
         .featured-grid, .why-grid, .services-grid { grid-template-columns: 1fr; }
         .process-layout { grid-template-columns: 1fr; }
-
-        /* Menu close: exit animation, then the panel is removed by JS after 160ms */
-        .nav-menu.closing { animation: nav-close var(--dur-exit) var(--ease-out) forwards; }
-        @keyframes nav-close {
-            from { opacity: 1; transform: scaleY(1); }
-            to   { opacity: 0; transform: scaleY(0.95); }
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .nav-menu.closing { animation: none; }
     }
     </style>
 </head>
@@ -569,15 +549,21 @@
         };
         btn.addEventListener('click', () => {
             if (video.paused) {
-                document.querySelectorAll('.featured-grid video').forEach((v) => { if (v !== video) v.pause(); });
+                document.querySelectorAll('.featured-grid video').forEach((v) => {
+                    if (v !== video) {
+                        v.pause();
+                        v.closest('.work-media').classList.remove('video-loading'); // paused while still buffering: never reaches 'playing'
+                    }
+                });
                 media.classList.add('video-loading');
                 video.play().catch(() => media.classList.remove('video-loading'));
             } else {
+                media.classList.remove('video-loading'); // second click while still buffering
                 video.pause();
             }
         });
         video.addEventListener('playing', () => { media.classList.remove('video-loading'); setPlaying(true); });
-        video.addEventListener('pause',  () => setPlaying(false));
+        video.addEventListener('pause',  () => { media.classList.remove('video-loading'); setPlaying(false); });
         video.addEventListener('ended',  () => setPlaying(false));
     });
 

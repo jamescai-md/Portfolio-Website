@@ -171,6 +171,11 @@ button {
     text-wrap: balance;
 }
 
+/* Section header wrapper: eyebrow + title, spaced off the section body */
+.section-header {
+    margin-bottom: var(--space-6);
+}
+
 /* Scroll reveal (IntersectionObserver toggles .visible) */
 .fade-up {
     opacity: 0;
@@ -675,6 +680,15 @@ button {
 .play-btn.hidden {
     display: none;
 }
+
+/* Playing state: icon swaps to pause, scrim drops so playback isn't dimmed.
+   Icon spans live in the HTML: <span class="play-btn-icon icon-play"> and
+   <span class="play-btn-icon icon-pause">. */
+.play-btn .icon-pause { display: none; }
+.play-btn.playing .icon-play { display: none; }
+.play-btn.playing .icon-pause { display: flex; }
+.play-btn.playing { background: transparent; }
+.play-btn.playing:hover { background: rgba(13, 17, 23, 0.25); }
 
 .work-tag-badge {
     position: absolute;
@@ -1408,6 +1422,10 @@ button {
     .avail-dot {
         animation: none;
     }
+
+    .nav-menu.closing {
+        animation: none;
+    }
 }
 
 /* ------------------------------------------------------------
@@ -1471,6 +1489,14 @@ button {
 
     .nav-menu.active li:last-child a {
         border-bottom: none;
+    }
+
+    /* Menu close: exit animation, then the panel is removed by JS after 160ms
+       (--dur-exit; keep the JS timeout in sync with it) */
+    .nav-menu.closing { animation: nav-close var(--dur-exit) var(--ease-out) forwards; }
+    @keyframes nav-close {
+        from { opacity: 1; transform: scaleY(1); }
+        to   { opacity: 0; transform: scaleY(0.95); }
     }
 
     .mobile-menu-btn.active span {
