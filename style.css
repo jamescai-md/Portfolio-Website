@@ -624,10 +624,6 @@ button {
 }
 
 /* Poster loading state: cheap shimmer, no spinner element needed */
-.work-media.video-loading img {
-    opacity: 0;
-}
-
 .work-media.video-loading::after {
     content: '';
     position: absolute;
@@ -640,6 +636,7 @@ button {
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s linear infinite;
+    pointer-events: none;   /* the shimmer must not swallow the play/cancel click */
 }
 
 @keyframes shimmer {
@@ -692,10 +689,6 @@ button {
 .play-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: -2px;
-}
-
-.play-btn.hidden {
-    display: none;
 }
 
 /* Playing state: icon swaps to pause, scrim drops so playback isn't dimmed.
