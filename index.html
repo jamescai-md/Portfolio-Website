@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Scroll reveal hides content only when JS can bring it back (.js .fade-up) -->
+    <script>document.documentElement.classList.add('js');</script>
     <style>
     /* index-only section layout (shared components live in style.css) */
     .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
@@ -36,7 +38,7 @@
     .service-features { margin-bottom: var(--space-5); }
     .service-features li { display: flex; align-items: flex-start; gap: var(--space-2); font-size: 0.8rem; line-height: 1.6; color: var(--text-muted); margin-bottom: var(--space-2); }
     .service-features li svg { flex-shrink: 0; margin-top: 0.2rem; color: var(--accent); }
-    .service-cta { margin-top: auto; font-size: 0.85rem; font-weight: 700; color: var(--accent); transition: color var(--dur-fast) var(--ease-out); }
+    .service-cta { margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; font-size: 0.85rem; font-weight: 700; color: var(--accent); transition: color var(--dur-fast) var(--ease-out); }
     .service-cta:hover { color: var(--accent-hover); }
 
     .process-layout { display: grid; grid-template-columns: 1fr 340px; gap: var(--space-6); align-items: start; }
@@ -251,7 +253,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </div>
                     <h3>Talking Head (Short-Form)</h3>
-                    <p>Your footage elevated with animated callouts, styled captions synced to speech, lower thirds, and MG b-roll that make clips worth watching.</p>
+                    <p>Your footage with animated callouts, styled captions synced to speech, lower thirds, and MG b-roll that make clips worth watching.</p>
                     <ul class="service-features">
                         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>MG b-roll and animated callouts</li>
                         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Captions styled and synced to speech</li>

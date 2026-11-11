@@ -18,7 +18,7 @@
 
     /* Text (all pairs AA-checked against --bg and --surface) */
     --text: #E6EDF3;
-    --text-muted: #8B949E;          /* 6.17:1 on bg, 5.64:1 on surface */
+    --text-muted: #9DA7B1;          /* 7.75:1 on bg, 7.08:1 on surface (rule 10) */
 
     /* Accent */
     --accent: #38BDF8;
@@ -75,6 +75,13 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Keyboard focus must land where the user can see it: a smooth scroll leaves the
+   focused control off-screen for hundreds of ms, so keyboard scrolling jumps
+   straight there while mouse-initiated anchor scrolling stays smooth. */
+html:has(:focus-visible) {
+    scroll-behavior: auto;
 }
 
 body {
@@ -176,8 +183,10 @@ button {
     margin-bottom: var(--space-6);
 }
 
-/* Scroll reveal (IntersectionObserver toggles .visible) */
-.fade-up {
+/* Scroll reveal (IntersectionObserver toggles .visible).
+   The hidden state lives under .js, which the page sets with an inline script:
+   without JS the copy stays visible instead of being stuck at opacity 0. */
+.js .fade-up {
     opacity: 0;
     transform: translateY(20px);
     transition:
@@ -190,6 +199,14 @@ button {
 .fade-up.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* A keyboard user tabbing into a card must see the focus ring at once, so a
+   focused reveal block shows immediately instead of waiting for the observer. */
+.js .fade-up:focus-within {
+    opacity: 1;
+    transform: none;
+    transition: none;
 }
 
 /* Stagger children by 30ms (rule 25); pages opt in with .stagger */
@@ -1409,7 +1426,7 @@ button {
         transition-duration: 0.01ms !important;
     }
 
-    .fade-up {
+    .js .fade-up {
         opacity: 1;
         transform: none;
         transition: none;
@@ -1425,6 +1442,8 @@ button {
 
     .nav-menu.closing {
         animation: none;
+        opacity: 0;          /* the panel leaves at once, no 160ms wait */
+        visibility: hidden;
     }
 }
 
@@ -1549,7 +1568,7 @@ button {
     }
 
     .marquee-label {
-        padding-left: var(--space-2);
+        padding-left: var(--space-5);   /* sits on the page margin (.container padding) */
     }
 
     .footer-content {
