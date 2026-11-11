@@ -21,6 +21,9 @@
        .works-grid-page's own padding-bottom (V3 wrote it for a bare grid) */
     .works-section { padding-bottom: 0; }
 
+    /* Cards carry no body copy, so the title needs the gap the <p> used to own */
+    .works-grid-page .work-info h3 { margin-bottom: var(--space-3); }
+
     .work-length-badge {
         position: absolute;
         bottom: var(--space-2);
@@ -72,8 +75,8 @@
     <section class="section works-section">
         <div class="container">
             <div class="section-header fade-up">
-                <p class="section-eyebrow">Case Studies</p>
-                <h2 class="section-title">Four pieces, from concept ads to documentary openers</h2>
+                <p class="section-eyebrow">Featured Work</p>
+                <h2 class="section-title">Two SaaS concept ads, a documentary opener, and a short-form reel</h2>
             </div>
             <div class="works-grid-page stagger">
 
@@ -91,7 +94,6 @@
                     </div>
                     <div class="work-info">
                         <h3>Brave Browser Concept Ad</h3>
-                        <p>Show how Brave blocks pop-ups, scam alerts, and trackers so people can browse without being watched.</p>
                         <div class="work-tools">
                             <span>After Effects</span>
                         </div>
@@ -112,7 +114,6 @@
                     </div>
                     <div class="work-info">
                         <h3>Gemini Concept Ad</h3>
-                        <p>Show how Gemini turns one typed prompt into generated results in seconds.</p>
                         <div class="work-tools">
                             <span>After Effects</span>
                         </div>
@@ -133,7 +134,6 @@
                     </div>
                     <div class="work-info">
                         <h3>History of IT</h3>
-                        <p>Open a long-form explainer tracing how computing grew from early machines into the connected everyday world.</p>
                         <div class="work-tools">
                             <span>After Effects</span>
                         </div>
@@ -154,7 +154,6 @@
                     </div>
                     <div class="work-info">
                         <h3>Modern Marketplace Announcement Reel</h3>
-                        <p>Announce the opening of a newly built public marketplace and the scale and features it brings to its community.</p>
                         <div class="work-tools">
                             <span>After Effects</span>
                         </div>
