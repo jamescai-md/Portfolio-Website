@@ -99,6 +99,7 @@
                         <h3>Brave Browser Concept Ad</h3>
                         <div class="work-tools">
                             <span>After Effects</span>
+                            <span>Premiere Pro</span>
                         </div>
                     </div>
                 </article>
@@ -119,6 +120,7 @@
                         <h3>Gemini Concept Ad</h3>
                         <div class="work-tools">
                             <span>After Effects</span>
+                            <span>Premiere Pro</span>
                         </div>
                     </div>
                 </article>
@@ -260,15 +262,19 @@
         });
     }, 80);
 
-    // Works videos: the play button toggles playback, one at a time
+    // Works videos: the play button toggles playback, one at a time.
+    // While a video plays, its badges and the button hide (keyboard focus
+    // brings the button back so keyboard users keep a visible control).
     document.querySelectorAll('.works-grid-page .work-media').forEach((media) => {
         const video  = media.querySelector('video');
         const btn    = media.querySelector('.play-btn');
-        const title  = media.closest('.work-card').querySelector('h3').textContent;
+        const card   = media.closest('.work-card');
+        const title  = card.querySelector('h3').textContent;
         const setPlaying = (playing) => {
             btn.classList.toggle('playing', playing);
             btn.setAttribute('aria-pressed', String(playing));
             btn.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + title + ' video');
+            card.classList.toggle('is-playing', playing);
         };
         btn.addEventListener('click', () => {
             if (video.paused) {
