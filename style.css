@@ -652,7 +652,9 @@ button {
     align-items: center;
     justify-content: center;
     background: rgba(13, 17, 23, 0.35);
-    transition: background-color var(--dur-fast) var(--ease-out);
+    transition:
+        background-color var(--dur-fast) var(--ease-out),
+        opacity var(--dur-fast) var(--ease-out);
 }
 
 .play-btn .play-btn-icon {
@@ -723,6 +725,16 @@ button {
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--dur-fast) var(--ease-out), visibility 0s var(--dur-fast);
+}
+
+/* The play/pause button fades out too while playing; keyboard focus brings
+   it back so keyboard users keep a visible control */
+.work-card.is-playing .play-btn {
+    opacity: 0;
+}
+
+.work-card.is-playing .play-btn:focus-visible {
+    opacity: 1;
 }
 
 .work-tag-badge {
